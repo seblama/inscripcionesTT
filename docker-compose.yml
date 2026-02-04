@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+        - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+    image: inscripciones-tt:latest
+    container_name: inscripciones-tt
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    env_file:
+      - .env
